@@ -1,0 +1,236 @@
+/**
+ * ProcessRedirects - ProcessWire Admin Styles
+ *
+ * Implements ProcessWire AdminThemeUikit / Konkat Design System tokens.
+ * Adapts automatically to Light and Dark modes with zero hardcoded colors.
+ */
+
+/* 1. Status Badges */
+.ProcessRedirects .redirect-status-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 20px;
+	height: 20px;
+	padding: 0 8px;
+	border-radius: var(--pw-input-radius, 3px);
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	vertical-align: middle;
+	white-space: nowrap;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+.ProcessRedirects .redirect-status-badge.redirect-status-active {
+	background-color: var(--pw-alert-success, #32d296);
+	color: #ffffff;
+	border: 1px solid transparent;
+}
+
+.ProcessRedirects .redirect-status-badge.redirect-status-inactive {
+	background-color: var(--pw-inputs-background, rgba(0, 0, 0, 0.06));
+	color: var(--pw-muted-color, #777777);
+	border: 1px solid var(--pw-border-color, rgba(0, 0, 0, 0.15));
+}
+
+/* 2. HTTP Code Chip */
+.ProcessRedirects .redirect-code-chip {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1;
+	padding: 3px 6px;
+	border-radius: var(--pw-input-radius, 2px);
+	background-color: var(--pw-inputs-background, rgba(0, 0, 0, 0.05));
+	color: var(--pw-text-color, inherit);
+	border: 1px solid var(--pw-border-color, rgba(0, 0, 0, 0.1));
+}
+
+/* 3. Search Bar & Controls */
+.ProcessRedirects .redirects-search-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 12px;
+}
+
+.ProcessRedirects .redirects-search-wrap {
+	position: relative;
+	max-width: 320px;
+	width: 100%;
+}
+
+.ProcessRedirects .redirects-search-wrap .uk-input {
+	padding-left: 32px;
+	border-radius: var(--pw-input-radius, 2px);
+	border-color: var(--pw-border-color, rgba(0, 0, 0, 0.15));
+	background-color: var(--pw-blocks-background, #ffffff);
+	color: var(--pw-text-color, inherit);
+}
+
+.ProcessRedirects .redirects-search-wrap .redirects-search-icon {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--pw-muted-color, #888888);
+	font-size: 12px;
+	pointer-events: none;
+}
+
+.ProcessRedirects .redirects-controls-right {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	white-space: nowrap;
+}
+
+.ProcessRedirects .redirects-controls-right label {
+	color: var(--pw-muted-color, #777777);
+	font-size: 13px;
+	margin-right: 2px;
+}
+
+.ProcessRedirects .redirects-controls-right select.uk-select {
+	width: auto;
+	min-width: 80px;
+	height: 32px;
+	padding: 0 24px 0 10px;
+	font-size: 13px;
+	border-radius: var(--pw-input-radius, 2px);
+	border-color: var(--pw-border-color, rgba(0, 0, 0, 0.15));
+	background-color: var(--pw-blocks-background, #ffffff);
+	color: var(--pw-text-color, inherit);
+}
+
+/* 4. Table and Selected Row Highlight */
+.ProcessRedirects .pw-table-panel {
+	border-radius: 2px;
+	margin-bottom: 12px;
+}
+
+.ProcessRedirects tr.row-selected-for-delete td {
+	background-color: var(--pw-alert-danger, rgba(230, 80, 80, 0.12)) !important;
+}
+
+.ProcessRedirects tr.redirects-no-results td {
+	padding: 28px;
+	color: var(--pw-muted-color, #777777);
+}
+
+/* 5. Pagination & Page Info */
+.ProcessRedirects .redirects-pagination-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 10px;
+	margin-bottom: 16px;
+	padding: 4px 0;
+}
+
+.ProcessRedirects .redirects-page-info {
+	font-size: 13px;
+	color: var(--pw-muted-color, #777777);
+}
+
+.ProcessRedirects .uk-pagination {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ProcessRedirects .uk-pagination li > * {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 32px;
+	height: 32px;
+	padding: 0 10px;
+	font-size: 13px;
+	font-weight: 500;
+	border-radius: var(--pw-input-radius, 2px);
+	border: 1px solid var(--pw-border-color, rgba(0, 0, 0, 0.12));
+	background-color: var(--pw-blocks-background, #ffffff);
+	color: var(--pw-text-color, #333333);
+	text-decoration: none;
+	transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+	box-sizing: border-box;
+}
+
+.ProcessRedirects .uk-pagination li > a:hover {
+	background-color: var(--pw-inputs-background, rgba(0, 0, 0, 0.05));
+	border-color: var(--pw-border-color, rgba(0, 0, 0, 0.25));
+	color: var(--pw-main-color, #1e87f0);
+}
+
+.ProcessRedirects .uk-pagination li.uk-active > * {
+	background-color: var(--pw-main-color, #1e87f0);
+	border-color: var(--pw-main-color, #1e87f0);
+	color: #ffffff !important;
+	font-weight: 600;
+}
+
+.ProcessRedirects .uk-pagination li.uk-disabled > * {
+	background-color: transparent;
+	border-color: transparent;
+	color: var(--pw-muted-color, #999999);
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+/* 6. Code Explanation Container in Edit Form */
+.ProcessRedirects #redirect_code_help {
+	font-size: 12px;
+	line-height: 1.45;
+	color: var(--pw-muted-color, #666666);
+	max-width: 650px;
+	margin-top: 8px;
+	padding: 8px 12px;
+	background-color: var(--pw-inputs-background, rgba(0, 0, 0, 0.03));
+	border-left: 3px solid var(--pw-main-color, #1e87f0);
+	border-radius: 2px;
+}
+
+/* 7. Responsive Adaptations (< 640px) */
+@media (max-width: 639px) {
+	.ProcessRedirects .redirects-search-bar {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 10px;
+	}
+	.ProcessRedirects .redirects-search-wrap {
+		max-width: 100%;
+	}
+	.ProcessRedirects .redirects-controls-right {
+		justify-content: flex-end;
+	}
+	.ProcessRedirects .redirects-pagination-wrap {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.ProcessRedirects .uk-pagination {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.ProcessRedirects .pw-module-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.ProcessRedirects .pw-module-actions .uk-button {
+		width: 100%;
+	}
+}

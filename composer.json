@@ -1,7 +1,28 @@
 {
     "name": "apeisa/process-redirects",
+    "description": "Redirects module for ProcessWire CMS/CMF. Manage HTTP redirects with wildcard, query string, and CSV support.",
     "type": "pw-module",
+    "keywords": [
+        "processwire",
+        "redirects",
+        "seo",
+        "301",
+        "302"
+    ],
+    "homepage": "https://processwire.com/talk/topic/148-release-redirects/",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Antti Peisa",
+            "homepage": "https://github.com/apeisa"
+        },
+        {
+            "name": "Teppo Koivula",
+            "homepage": "https://github.com/teppokoivula"
+        }
+    ],
     "require": {
+        "php": ">=7.4.0",
         "wireframe-framework/processwire-composer-installer": "^1.0.0"
     }
 }

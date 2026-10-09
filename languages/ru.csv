@@ -1,0 +1,113 @@
+en,ru,description,file,hash
+"Manage redirects","Управление перенаправлениями",,site/modules/ProcessRedirects/ProcessRedirects.module,33b539e75111e7b300ec05d15c784435
+"Redirect From","Исходный URL",,site/modules/ProcessRedirects/ProcessRedirects.module,9d6173567a5ce056fc822f9098ca7252
+"Redirect To","Целевой URL",,site/modules/ProcessRedirects/ProcessRedirects.module,21d30a3f3b3d1826f97f7def77068d7d
+Status,Статус,,site/modules/ProcessRedirects/ProcessRedirects.module,ec53a8c4f07baed5d8825072c89799be
+Active,Активно,,site/modules/ProcessRedirects/ProcessRedirects.module,4d3d769b812b6faa6b76e1a8abaece2d
+Inactive,Неактивно,,site/modules/ProcessRedirects/ProcessRedirects.module,3cab03c00dbd11bc3569afa0748013f0
+Code,Код,,site/modules/ProcessRedirects/ProcessRedirects.module,ca0dbad92a874b2f69b549293387925e
+"Test Redirect","Проверить перенаправление",,site/modules/ProcessRedirects/ProcessRedirects.module,d35c41c5a8610ae5ecc12354a9b0386a
+Hits,Переходы,,site/modules/ProcessRedirects/ProcessRedirects.module,b69df945ae986e6b1882cdc87ad19617
+Delete,Удалить,,site/modules/ProcessRedirects/ProcessRedirects.module,f2a6c498fb90ee345d997f888fce3b18
+Test,Тест,,site/modules/ProcessRedirects/ProcessRedirects.module,0cbc6611f5540bd0809a388dc95a615b
+"Add redirect","Добавить перенаправление",,site/modules/ProcessRedirects/ProcessRedirects.module,be52536ce2456f133c611e523f95701c
+Import,Импорт,,site/modules/ProcessRedirects/ProcessRedirects.module,72d6d7a1885885bb55a565fd1070581a
+Export,Экспорт,,site/modules/ProcessRedirects/ProcessRedirects.module,0095a9fa74d1713e43e370a7d7846224
+"Remove selected redirects","Удалить выбранные перенаправления",,site/modules/ProcessRedirects/ProcessRedirects.module,09ce448466551a56126e9c949c58cff5
+"Search redirects...","Поиск перенаправлений...",,site/modules/ProcessRedirects/ProcessRedirects.module,73cf07779d95d608ed774dbfc6c089a1
+"Search redirects","Поиск перенаправлений",,site/modules/ProcessRedirects/ProcessRedirects.module,7efb05f49feb3f8fd6bdccb74cf4fee4
+"Select all redirects","Выбрать все перенаправления",,site/modules/ProcessRedirects/ProcessRedirects.module,60dc8ea5e2b22fb89cc5a6a0d3879196
+"Select all","Выбрать все",,site/modules/ProcessRedirects/ProcessRedirects.module,4c41e0bd957698b58100a5c687d757d9
+"You need to select at least one item to delete first.","Сначала выберите хотя бы один элемент для удаления.",,site/modules/ProcessRedirects/ProcessRedirects.module,82f1c489d84ca550e00845ebe8f4959c
+"Are you sure you want to delete selected redirects?","Вы уверены, что хотите удалить выбранные перенаправления?",,site/modules/ProcessRedirects/ProcessRedirects.module,ac0bed06167790270fff9ca0d2852cf3
+Redirects,Перенаправления,,site/modules/ProcessRedirects/ProcessRedirects.module,08635c4f0bf6edbca5d2a8bd0da24a6c
+"Add Redirect","Добавить перенаправление",,site/modules/ProcessRedirects/ProcessRedirects.module,29d916d0db37747ddb65923756bafbf0
+"Edit Redirect","Редактировать перенаправление",,site/modules/ProcessRedirects/ProcessRedirects.module,8779cb46742c37198d5a3bf6c93d7ca6
+"Redirect not found.","Перенаправление не найдено.",,site/modules/ProcessRedirects/ProcessRedirects.module,5750fc11bec4e22cde4076f22e42f698
+"Please select target page.","Пожалуйста, выберите целевую страницу.",,site/modules/ProcessRedirects/ProcessRedirects.module,3f1456580443a01434030829269f872b
+"Redirect From and Redirect To cannot be identical (would cause an infinite redirect loop).","Исходный и целевой URL не могут совпадать (это вызовет бесконечный цикл перенаправления).",,site/modules/ProcessRedirects/ProcessRedirects.module,4df788ede88ed17c3871bdbb4f58b753
+"Redirect From and Redirect To cannot point to the same URL on this domain (would cause an infinite redirect loop).","Исходный и целевой URL не могут указывать на один и тот же адрес на этом домене (это вызовет бесконечный цикл перенаправления).",,site/modules/ProcessRedirects/ProcessRedirects.module,ccd084a724df99f3c20619336719c25d
+"Enter relative path with slashes (e.g. `/some/path/`).","Введите относительный путь со слешами (например, `/some/path/`).",,site/modules/ProcessRedirects/ProcessRedirects.module,099c73044c1eee9a5f3a269c20573b77
+"Note: Redirect From must not match any existing, viewable page. See ""Instructions"" section for more details.","Примечание: Исходный URL не должен совпадать с существующей доступной страницей. Подробнее см. раздел ""Инструкции"".",,site/modules/ProcessRedirects/ProcessRedirects.module,7d39230b84242149d1d11c1d864bc680
+"Select Page to Redirect To","Выберите страницу для перенаправления",,site/modules/ProcessRedirects/ProcessRedirects.module,51251c7b1563d10f4979c35793edc169
+"Select Page","Выбрать страницу",,site/modules/ProcessRedirects/ProcessRedirects.module,99e7707748ae048e17c5810fad119e0b
+"or type URL here","или введите URL здесь",,site/modules/ProcessRedirects/ProcessRedirects.module,b94de69b67d2663f452a55811da9872c
+"Enter a valid URL, i.e. www.otherdomain.com/dir/ or relative URL like /season/summer/","Введите корректный URL (например, www.otherdomain.com/dir/ или относительный URL вроде /season/summer/)",,site/modules/ProcessRedirects/ProcessRedirects.module,cc6ba94f50a9364a1edc8642f53eaadb
+"HTTP Redirect Status Code","Код состояния перенаправления HTTP",,site/modules/ProcessRedirects/ProcessRedirects.module,e3fc64dfc8f7cb49ba62aae0498e078c
+"Select the HTTP status code to return with the redirect.","Выберите код состояния HTTP, возвращаемый при перенаправлении.",,site/modules/ProcessRedirects/ProcessRedirects.module,b12b32802b94afc8a7b3d730eba9ebd4
+"Default HTTP Redirect Status Code","Код состояния HTTP-перенаправления по умолчанию",,site/modules/ProcessRedirects/ProcessRedirects.module,753b2699850e82d4d7371f8965af9ad8
+"Default HTTP status code to use for newly created redirects.","Код состояния HTTP по умолчанию для вновь создаваемых перенаправлений.",,site/modules/ProcessRedirects/ProcessRedirects.module,0b2521fce50b6f9b522ac2f1d769eadc
+"Moved Permanently (default)","Перемещено навсегда (по умолчанию)",,site/modules/ProcessRedirects/ProcessRedirects.module,f083db32375d13a6645102aeaa81669f
+"Found (Temporary)","Найдено (Временно)",,site/modules/ProcessRedirects/ProcessRedirects.module,dc7a6db572c20a92ee0a63d0701e1941
+"See Other","Смотреть другое (See Other)",,site/modules/ProcessRedirects/ProcessRedirects.module,4f7c6641e26721a86ef5a90cdeacd543
+"Temporary Redirect","Временное перенаправление",,site/modules/ProcessRedirects/ProcessRedirects.module,a900f342ef404f4a309c8468fa20bdb0
+"Permanent Redirect","Постоянное перенаправление",,site/modules/ProcessRedirects/ProcessRedirects.module,1406b3e4aabfd0bac98486b09cb16994
+"When checked, this redirect is active and will be processed. Uncheck to temporarily disable.","Если флажок установлен, перенаправление активно и будет выполняться. Снимите флажок для временного отключения.",,site/modules/ProcessRedirects/ProcessRedirects.module,2fde695079de2ed251db0436575b6289
+Save,Сохранить,,site/modules/ProcessRedirects/ProcessRedirects.module,c9cc8cce247e49bae79f15173ce97354
+"Import Redirects","Импорт перенаправлений",,site/modules/ProcessRedirects/ProcessRedirects.module,64614a0f74e8c2d3e4ec29b319a72b39
+"Export Redirects","Экспорт перенаправлений",,site/modules/ProcessRedirects/ProcessRedirects.module,ac45c37824cdb7facd6f974ad36e2628
+"List of redirects","Список перенаправлений",,site/modules/ProcessRedirects/ProcessRedirects.module,245d50676b32b52342b9007da6eb0140
+"This field contains all existing redirects. You can export them by selecting, copying, and pasting to a text editor or other application of your choice.","Это поле содержит все существующие перенаправления. Вы можете экспортировать их, выделив, скопировав и вставив в текстовый редактор или другое приложение.",,site/modules/ProcessRedirects/ProcessRedirects.module,f24bb211fe1f6b4edf3d98fbc236ace0
+Back,Назад,,site/modules/ProcessRedirects/ProcessRedirects.module,0557fa923dcee4d0f86b1409f5c2167f
+"Download CSV","Скачать CSV",,site/modules/ProcessRedirects/ProcessRedirects.module,54df9536f2bc89e18bec27b0d34ab42e
+"CSRF check failed, redirect was not saved. Please try again.","Проверка CSRF не удалась, перенаправление не сохранено. Пожалуйста, повторите попытку.",,site/modules/ProcessRedirects/ProcessRedirects.module,ed270d1d72cb1d83308ae37db796fec9
+"No redirect created, please check provided values.","Перенаправление не создано, пожалуйста, проверьте введенные значения.",,site/modules/ProcessRedirects/ProcessRedirects.module,e8d6122d330ccd63c869068c24665f09
+"The Redirect From URL already exists as a page path. Redirect not added.","Исходный URL уже существует как путь к странице. Перенаправление не добавлено.",,site/modules/ProcessRedirects/ProcessRedirects.module,9dc004cdd1e7ba1bcc5735330165384e
+inactive,неактивно,,site/modules/ProcessRedirects/ProcessRedirects.module,19d3894f53ce79c3f836f26cf8a3be3b
+"Saved redirect from ""%s"" to ""%s"" (%d)%s.","Сохранено перенаправление с ""%s"" на ""%s"" (%d)%s.",,site/modules/ProcessRedirects/ProcessRedirects.module,ae7229b6a0f7e15bf2b85123ab044d68
+"Saved redirect from ""%s"" to ""%s"".","Сохранено перенаправление с ""%s"" на ""%s"".",,site/modules/ProcessRedirects/ProcessRedirects.module,6e63021418a582322ea6c7798cab1094
+"No redirects created, invalid import file.","Перенаправления не созданы, недействительный файл импорта.",,site/modules/ProcessRedirects/ProcessRedirects.module,959b137330660f3cd6ed13aa1ba4c210
+"Unable to read uploaded CSV file.","Не удалось прочитать загруженный CSV-файл.",,site/modules/ProcessRedirects/ProcessRedirects.module,281a2e22a1436c6c91fa2a59f8b163b1
+"No redirects created, please check your values.","Перенаправления не созданы, пожалуйста, проверьте ваши значения.",,site/modules/ProcessRedirects/ProcessRedirects.module,b8ca26c95de11357f48ad7dc348ace27
+"Malformed input, redirect not added: %s","Некорректный ввод, перенаправление не добавлено: %s",,site/modules/ProcessRedirects/ProcessRedirects.module,453c11cf96038f26a77abd47447769a9
+"Self-redirect loop detected, redirect not added: %s","Обнаружен цикл перенаправления на себя, перенаправление не добавлено: %s",,site/modules/ProcessRedirects/ProcessRedirects.module,ccae44fdca09b203197376291fa7511f
+"Duplicate from path, redirect not added: %s","Дублирующийся исходный путь, перенаправление не добавлено: %s",,site/modules/ProcessRedirects/ProcessRedirects.module,3f78eb26f8011cfb839597eb3c4bbe57
+"Saved redirects (%1$d skipped, %2$d added, %3$d updated)","Перенаправления сохранены (%1$d пропущено, %2$d добавлено, %3$d обновлено)",,site/modules/ProcessRedirects/ProcessRedirects.module,86cf14227c92ba60c54c3c1f1082b775
+"Nothing to delete.","Нечего удалять.",,site/modules/ProcessRedirects/ProcessRedirects.module,aea31f9130e986d7a7c8eb8e217948ca
+"Deleted %d redirect.","Удалено %d перенаправление.","Singular form",site/modules/ProcessRedirects/ProcessRedirects.module,08245f4a7f61d0c0ee2891e52581acda
+"Deleted %d redirects.","Удалено %d перенаправлений.","Plural form",site/modules/ProcessRedirects/ProcessRedirects.module,f37728a800e19f2567b18eb2f9162c72
+"Import from","Источник импорта",,site/modules/ProcessRedirects/ProcessRedirects.module,7541fe5b66661ddf8318250df45a8c3e
+"Text input","Текстовый ввод",,site/modules/ProcessRedirects/ProcessRedirects.module,1b750a133cb9a70ce24006f0d8225267
+"File upload","Загрузка файла",,site/modules/ProcessRedirects/ProcessRedirects.module,c4265549c1f4d79aea1e279149a6a084
+"Comma separated list, where each line contains one redirect (redirect_from,redirect_to[,redirect_code]).","Список, разделенный запятыми, где каждая строка содержит одно перенаправление (исходный_url,целевой_url[,код_состояния]).",,site/modules/ProcessRedirects/ProcessRedirects.module,dbb6740a836242d9fcd8c07c677549dc
+Example,Пример,,site/modules/ProcessRedirects/ProcessRedirects.module,0a52730597fb4ffa01fc117d9e71e3a9
+"/campaign/,/products/tools/offers/","/campaign/,/products/tools/offers/","Example URL",site/modules/ProcessRedirects/ProcessRedirects.module,cd242c521eed9651189f528841006a72
+"/another-campaign/,https://www.example.com,301","/another-campaign/,https://www.example.com,301","Example URL",site/modules/ProcessRedirects/ProcessRedirects.module,e24fd4132e60fe8ccec96785184727a2
+"/temporary-promo/,/offers/,302","/temporary-promo/,/offers/,302","Example URL",site/modules/ProcessRedirects/ProcessRedirects.module,3f591827ed6572941365f3692a516c16
+"/index.php?page=2,/about-us/","/index.php?page=2,/about-us/","Example URL",site/modules/ProcessRedirects/ProcessRedirects.module,b22f39c211af8f1babcc5f0bdfd996fe
+"/shop/products/*,/products/","/shop/products/*,/products/","Example URL",site/modules/ProcessRedirects/ProcessRedirects.module,1217d5b3b19ad9056b79f7c43726b230
+"Upload file","Загрузить файл",,site/modules/ProcessRedirects/ProcessRedirects.module,ffeed24e8e4fd763c1d0d02c6e5d6e15
+"Import redirects by uploading a CSV file. Each row should contain two or three comma separated values: local source path (1), redirect target (2), and optional HTTP redirect status code (3, default 301).","Импортируйте перенаправления, загрузив CSV-файл. Каждая строка должна содержать два или три значения, разделенных запятыми: локальный исходный путь (1), цель перенаправления (2) и необязательный код состояния HTTP (3, по умолчанию 301).",,site/modules/ProcessRedirects/ProcessRedirects.module,9666208549f141d0d518816be00cde9a
+"1. Source path should be a non-existing path on current site (e.g. /some/path/).
+2. Redirect target may be local path (/path/to/page/), external URL (https://www.example.com/), or page ID prefixed with a caret (e.g. ^1234).
+3. Optional HTTP status code: 301, 302, 303, 307, or 308 (defaults to configured default if omitted).","1. Исходный путь должен быть несуществующим путем на текущем сайте (например, /some/path/).
+2. Цель перенаправления может быть локальным путем (/path/to/page/), внешним URL (https://www.example.com/) или идентификатором страницы со знаком каретки (например, ^1234).
+3. Необязательный код состояния HTTP: 301, 302, 303, 307 или 308 (по умолчанию, если опущено).",,site/modules/ProcessRedirects/ProcessRedirects.module,de18a1668d7ee2392524d0402443f81c
+"Add New Redirects","Добавить новые перенаправления",,site/modules/ProcessRedirects/ProcessRedirects.module,38a1399e5b1eee44dce4edd808ee2a0a
+Instructions,Инструкции,,site/modules/ProcessRedirects/ProcessRedirects.module,49cc8e6220245b65cd7d20fc6ccc74f5
+"The value in the ""Redirect From"" field should be a local, relative path — such as `/some/path/`. Provided path must also not match that of any existing page; existing page always takes precedence over a redirect, effectively rendering the redirect inactive.","Значение в поле ""Исходный URL"" должно быть локальным относительным путем, например `/some/path/`. Указанный путь также не должен совпадать с существующей страницей; существующая страница всегда имеет приоритет над перенаправлением, фактически делая его неактивным.",,site/modules/ProcessRedirects/ProcessRedirects.module,a62d7651532c15520c26b2b05fdf9991
+"Examples of supported values:","Примеры поддерживаемых значений:",,site/modules/ProcessRedirects/ProcessRedirects.module,23be2551bacfef27e405678e82940ce5
+"- Path with one or more parts: `/campaign/`, `/old/site/path/`, etc.","- Путь из одной или нескольких частей: `/campaign/`, `/old/site/path/` и т. д.",,site/modules/ProcessRedirects/ProcessRedirects.module,3fec1c4c9165da1babc568607d815d8d
+"- Path with a file extension: `/products/t-shirt.html`","- Путь с расширением файла: `/products/t-shirt.html`",,site/modules/ProcessRedirects/ProcessRedirects.module,18145bafcfa326e1ab0f0ad06bff2370
+"- Path with a query string: `/index.php?page=2`","- Путь со строкой запроса: `/index.php?page=2`",,site/modules/ProcessRedirects/ProcessRedirects.module,948d15d88b930bbf1cbfb2a7dbe4c58e
+"You may use ""`*`"" as a wildcard for matching zero or more characters: `/products/*` would match `/products/`, `/products/t-shirt/`, etc.","Вы можете использовать ""`*`"" в качестве подстановочного знака для соответствия нулю или более символов: `/products/*` будет соответствовать `/products/`, `/products/t-shirt/` и т. д.",,site/modules/ProcessRedirects/ProcessRedirects.module,ef5b8b39d6ef2dc1981a7f9eb10339ff
+"HTTP Status Codes:","Коды состояния HTTP:",,site/modules/ProcessRedirects/ProcessRedirects.module,7c3831f7845427fa13cb1c5bad93fb3d
+"- **301 (Moved Permanently)**: Best for permanent SEO changes, cached by browsers and search engines.","- **301 (Перемещено навсегда)**: Лучше всего для постоянных изменений SEO, кэшируется браузерами и поисковыми системами.",,site/modules/ProcessRedirects/ProcessRedirects.module,c305089ae0d3b52fb1688f46e71ad299
+"- **302 (Found / Temporary)**: Temporary redirect, not cached by default.","- **302 (Найдено / Временно)**: Временное перенаправление, по умолчанию не кэшируется.",,site/modules/ProcessRedirects/ProcessRedirects.module,def57c9106bf3bbf10df5f2b0d24c147
+"- **303 (See Other)**: Redirects with GET method, ideal for post/redirect/get flows.","- **303 (Смотреть другое)**: Перенаправляет методом GET, идеально подходит для шаблона Post/Redirect/Get.",,site/modules/ProcessRedirects/ProcessRedirects.module,d643655933718d0fe7491d53f1b0a902
+"- **307 (Temporary Redirect)**: Preserves request method (e.g. POST remains POST).","- **307 (Временное перенаправление)**: Сохраняет метод запроса (например, POST остается POST).",,site/modules/ProcessRedirects/ProcessRedirects.module,fdf3a64b45debead4bee65cb91d02e10
+"- **308 (Permanent Redirect)**: Permanent equivalent of 307 preserving request method.","- **308 (Постоянное перенаправление)**: Постоянный эквивалент 307 с сохранением метода запроса.",,site/modules/ProcessRedirects/ProcessRedirects.module,8a1fdec4db3f1abafb185ffd56e86287
+"301 Moved Permanently: Best for permanent SEO changes. Fully cached by browsers and search engines; passes link equity.","301 Перемещено навсегда: Лучший выбор для постоянных изменений SEO. Полностью кэшируется браузерами и поисковыми системами; передает ссылочный вес.",,site/modules/ProcessRedirects/ProcessRedirects.module,3f613a90229db6a036857b37bd3f5dfe
+"302 Found (Temporary): Standard temporary redirect. Search engines maintain the original URL in the index.","302 Найдено (временно): Стандартное временное перенаправление. Поисковые системы сохраняют исходный URL в индексе.",,site/modules/ProcessRedirects/ProcessRedirects.module,ad9c7f8ec55236f10a4e2d870ca5fd4d
+"303 See Other: Directs client to target using HTTP GET method. Ideal for Post/Redirect/Get patterns.","303 Смотреть другое: Направляет клиента к цели с помощью метода HTTP GET. Идеально для паттернов Post/Redirect/Get.",,site/modules/ProcessRedirects/ProcessRedirects.module,b26728eec30d0b54f2aac068ac82ef36
+"307 Temporary Redirect: Modern temporary redirect strictly preserving HTTP request method (POST remains POST).","307 Временное перенаправление: Современное временное перенаправление, строго сохраняющее метод HTTP-запроса (POST остается POST).",,site/modules/ProcessRedirects/ProcessRedirects.module,3a2be13780a078cf192101b52b399aac
+"308 Permanent Redirect: Modern permanent redirect strictly preserving HTTP request method and caching behavior.","308 Постоянное перенаправление: Современное постоянное перенаправление, строго сохраняющее метод HTTP-запроса и поведение кэширования.",,site/modules/ProcessRedirects/ProcessRedirects.module,6fcf4adf368940cdbd8e7c61bfbcc80b
+"Please select or enter target page.","Пожалуйста, выберите или введите целевую страницу.",,site/modules/ProcessRedirects/ProcessRedirects.module,34a1025382f2e44e80ab0e97577ffd5e
+"No redirects matching your search.","Перенаправлений, соответствующих поисковому запросу, не найдено.",,site/modules/ProcessRedirects/ProcessRedirects.module,356feb4718b98e16accf66f12a5a4fb0
+"Destination Type","Тип назначения",,site/modules/ProcessRedirects/ProcessRedirects.module,ee9fbcaf9d696ed41d07de59b2754abd
+"Internal Page","Внутренняя страница",,site/modules/ProcessRedirects/ProcessRedirects.module,ed48faf41829cdbe35139b8faab0579b
+"External URL or Custom Path","Внешний URL или пользовательский путь",,site/modules/ProcessRedirects/ProcessRedirects.module,d25daecb5a5b3788a0e058859ffc1fc4
+"Target Page","Целевая страница",,site/modules/ProcessRedirects/ProcessRedirects.module,6bffd228292543e1c6fc444b246663ef
+"Target URL or Path","Целевой URL или путь",,site/modules/ProcessRedirects/ProcessRedirects.module,7c10f13b5b0b86427554070cb2187c6d
+"Enter a valid URL (e.g. https://www.otherdomain.com/) or relative path.","Введите действительный URL (например, https://www.otherdomain.com/) или относительный путь.",,site/modules/ProcessRedirects/ProcessRedirects.module,bddd24020869c5390b346d60ea19e213
+"Please enter target URL.","Пожалуйста, введите целевой URL.",,site/modules/ProcessRedirects/ProcessRedirects.module,4756e7baaee8a841b83ada1c6db39adf
