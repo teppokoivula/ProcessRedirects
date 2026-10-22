@@ -52,7 +52,7 @@ class ProcessRedirects extends Process implements ConfigurableModule {
 			'title' => 'Redirects',
 			'summary' => __('Manage redirects'),
 			'href' => 'https://processwire.com/talk/topic/148-release-redirects/',
-			'version' => '2.2.5',
+			'version' => '2.3.0',
 			'permanent' => false,
 			'page' => [
 				'name' => 'redirects',
@@ -287,9 +287,10 @@ class ProcessRedirects extends Process implements ConfigurableModule {
 		$field->attr('id+name', 'select_page');
 		$field->startLabel = $this->_('Select Page');
 		$field->parent_id = 0; // tell it to start from homepage
+		$language = null;
 		if (strpos($to, '/') === 0) {
 			// if a value is already set determine if it's a page, in which case populate the input with the page_id
-			$page = $this->pages->get($to);
+			list($page, $language) = $this->findPageByPath($to);
 			if ($page->id) {
 				$field->value = $page->id;
 			}
@@ -297,6 +298,22 @@ class ProcessRedirects extends Process implements ConfigurableModule {
 			$page = $this->wire(new NullPage());
 		}
 		$form->add($field);
+
+		// language of the target page (only for sites with multi-language page names)
+		$languages = $this->getLanguages();
+		if ($languages !== null) {
+			/** @var InputfieldSelect */
+			$field = $this->modules->get('InputfieldSelect');
+			$field->label = $this->_('Language of Page to Redirect To');
+			$field->attr('id+name', 'select_language');
+			$field->required = true;
+			foreach ($languages as $lang) {
+				$field->addOption($lang->id, $lang->get('title|name'));
+			}
+			$field->value = $language ? $language->id : $languages->getDefault()->id;
+			$field->showIf = 'select_page>0';
+			$form->add($field);
+		}
 
 		/** @var InputfieldURL */
 		$field = $this->modules->get('InputfieldURL');
@@ -444,11 +461,14 @@ class ProcessRedirects extends Process implements ConfigurableModule {
 		$from = $this->input->post->redirect_from;
 		$to = $this->input->post->redirect_to;
 
-		// fall back to select_page value if redirect_to is empty
-		if (empty($to) && $this->input->post->select_page && (int) $this->input->post->select_page == $this->input->post->select_page) {
-			$select_page = $this->pages->get((int) $this->input->post->select_page);
+		// use select_page value if redirect_to is empty or points to the selected page; for multi-language sites
+		// the URL of the selected language is used
+		$select_page_id = (int) $this->input->post->select_page;
+		if ($select_page_id && (empty($to) || $this->findPageByPath((string) $to, true)[0]->id === $select_page_id)) {
+			$select_page = $this->pages->get($select_page_id);
 			if ($select_page->id && !$select_page->isTrash() && $select_page->viewable()) {
-				$to = $select_page->url;
+				$language = $this->getLanguage((int) $this->input->post->select_language);
+				$to = $language ? $select_page->localUrl($language) : $select_page->url;
 			}
 		}
 
@@ -457,13 +477,8 @@ class ProcessRedirects extends Process implements ConfigurableModule {
 			$this->error($this->_('No redirect created, please check provided values.'));
 			$this->session->redirect('../', false);
 		} else {
-			$clean_path = $this->sanitizer->path($from);
-			$path_match = $this->pages->getByPath($clean_path, [
-				'useLanguages' => true,
-			]);
-			// check if given path matches existing page and validate the result by comparing full paths (Pages::getByPath()
-			// can return a partial match if the page name is unique) and basenames (in case there's a multi-lingual match)
-			if ($path_match->id && ($path_match->path == $clean_path || $path_match->name != basename($clean_path))) {
+			// check if given path matches existing page (in any language)
+			if ($this->findPageByPath($this->sanitizer->path($from))[0]->id) {
 				$this->error($this->_('The Redirect From URL already exists as a page path. Redirect not added.'));
 				$this->session->redirect('../', false);
 			}
@@ -724,24 +739,85 @@ class ProcessRedirects extends Process implements ConfigurableModule {
 	 * If second argument ($http) is set as 'true' and first argument ($to) matches an existing page, this method will
 	 * return the full httpUrl for the page; otherwise we'll return the (relative) path to the page.
 	 *
+	 * Stored page IDs may contain a language ID (^[page ID]:[language ID]), in which case the URL of that language is
+	 * returned. Page IDs without a language ID resolve to the URL in current user's language.
+	 *
 	 * @param string $to Target URL, or a page ID with a caret prefix
 	 * @param bool $http Return httpUrl property instead of path?
 	 * @return string
 	 */
 	private function makeRedirectToURL(string $to, bool $http = false): string {
 
-		// bail out early if target URL doesn't start with a caret (in which case it's already an URL)
-		if (strpos($to, '^') !== 0) return $to;
+		// bail out early if target URL isn't a stored page ID (in which case it's already an URL)
+		if (!preg_match('/^\^(\d+)(?::(\d+))?$/', $to, $matches)) return $to;
 
 		// get a page matching the stored ID value
-		$target_page = $this->pages->get((int) substr($to, 1));
+		$target_page = $this->pages->get((int) $matches[1]);
+		if (!$target_page->id) return $to;
 
-		// if a page was found, return full httpUrl or relative path depending on provided arguments
-		if ($target_page->id) {
-			$to = $target_page->get($http ? 'httpUrl' : 'path');
+		// return full httpUrl or relative path in stored language
+		$language = $this->getLanguage((int) ($matches[2] ?? 0));
+		if ($language !== null) {
+			return $http ? $target_page->localHttpUrl($language) : $target_page->localPath($language);
 		}
 
-		return $to;
+		// return full httpUrl or relative path depending on provided arguments
+		return $target_page->get($http ? 'httpUrl' : 'path');
+	}
+
+	/**
+	 * Get languages if multi-language page names are in use
+	 *
+	 * @return Languages|null
+	 */
+	private function getLanguages(): ?Languages {
+		$languages = $this->wire('languages');
+		return $languages && $languages->hasPageNames() ? $languages : null;
+	}
+
+	/**
+	 * Get language by ID if multi-language page names are in use
+	 *
+	 * @param int $id
+	 * @return Language|null
+	 */
+	private function getLanguage(int $id): ?Language {
+		$languages = $this->getLanguages();
+		if ($languages === null || !$id) return null;
+		$language = $languages->get($id);
+		return $language && $language->id ? $language : null;
+	}
+
+	/**
+	 * Find page and language exactly matching given path
+	 *
+	 * Pages::getByPath() may return partial matches, and for multi-language matches Page::path is still the path in
+	 * the default language, so the result is validated against the local path of each language.
+	 *
+	 * @param string $path Relative path, e.g. /en/some/page/
+	 * @param bool $isUrl Path is a URL that may contain the subdirectory ProcessWire is installed in
+	 * @return array [Page|NullPage, Language|null]
+	 */
+	private function findPageByPath(string $path, bool $isUrl = false): array {
+		$root = $this->config->urls->root;
+		if ($isUrl && $root !== '/' && strpos($path, $root) === 0) {
+			$path = substr($path, strlen($root) - 1);
+		}
+		$path = rtrim($path, '/');
+		$languages = $this->getLanguages();
+		$page = $this->pages->getByPath($path === '' ? '/' : $path, [
+			'useLanguages' => $languages !== null,
+		]);
+		if ($page->id) {
+			if ($languages === null) {
+				if (rtrim($page->path, '/') === $path) return [$page, null];
+			} else {
+				foreach ($languages as $language) {
+					if (rtrim($page->localPath($language), '/') === $path) return [$page, $language];
+				}
+			}
+		}
+		return [$this->wire(new NullPage()), null];
 	}
 
 	/**
@@ -850,11 +926,12 @@ class ProcessRedirects extends Process implements ConfigurableModule {
 		$to = $this->sanitizer->url($to);
 
 		// if target address is a relative path (local URL) and points to an existing page, store a page ID instead;
-		// we're also going to add a caret prefix (^[page ID]) to make the stored ID easily distinguishable
+		// we're also going to add a caret prefix (^[page ID]) to make the stored ID easily distinguishable, and for
+		// multi-language sites the language ID of the matched path (^[page ID]:[language ID])
 		if (strpos($to, '/') === 0) {
-			$target_page = $this->pages->get($to);
+			list($target_page, $language) = $this->findPageByPath($to, true);
 			if ($target_page->id && !$target_page->isTrash()) {
-				$to = '^' . $target_page->id;
+				$to = '^' . $target_page->id . ($language ? ':' . $language->id : '');
 			}
 		}
 
@@ -915,14 +992,18 @@ class ProcessRedirects extends Process implements ConfigurableModule {
 		/** @var InputfieldMarkup */
 		$instructions = $this->modules->get('InputfieldMarkup');
 		$instructions->label = $this->_('Instructions');
-		$instructions->value = $this->sanitizer->entitiesMarkdown(implode("\n", [
+		$lines = [
 			$this->_('The value in the "Redirect From" field should be a local, relative path — such as `/some/path/`. Provided path must also not match that of any existing page; existing page always takes precedence over a redirect, effectively rendering the redirect inactive.') . "\n",
 			$this->_('Examples of supported values:'),
 			$this->_('- Path with one or more parts: `/campaign/`, `/old/site/path/`, etc.'),
 			$this->_('- Path with a file extension: `/products/t-shirt.html`'),
 			$this->_('- Path with a query string: `/index.php?page=2`') . "\n",
 			$this->_('You may use "`*`" as a wildcard for matching zero or more characters: `/products/*` would match `/products/`, `/products/t-shirt/`, etc.'),
-		]), ['fullMarkdown' => true]);
+		];
+		if ($this->getLanguages() !== null) {
+			$lines[] = "\n" . $this->_('**Multi-language sites:** "Redirect From" may contain a language prefix, e.g. `/en/old/path/`. To redirect to a page in a specific language, select the page and then choose its language; the URL shown in the "or type URL here" field is the default-language URL and will be replaced with the URL of the selected language when saving. Alternatively, type the language-specific path (e.g. `/en/some/page/`) or use the import with such paths. Redirects to pages are stored by page ID and language, so they keep working if the page is renamed or moved.');
+		}
+		$instructions->value = $this->sanitizer->entitiesMarkdown(implode("\n", $lines), ['fullMarkdown' => true]);
 		$instructions->icon = 'info-circle';
 		$instructions->collapsed = Inputfield::collapsedYes;
 
